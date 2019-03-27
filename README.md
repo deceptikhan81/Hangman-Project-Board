@@ -86,3 +86,15 @@ correct guess the player makes. Once
 the player has guessed all the letters,
 remainingLetters will be 0 and the loop
 will end.
+
+Showing the Player’s Progress:
+The first thing we need to do inside the game loop is to show the
+player their current progress:
+alert(answerArray.join(" "));
+We do that by joining the elements of answerArray into a string,
+using the space character as the separator, and then using alert
+to show that string to the player. For example, let’s say the word
+is monkey and the player has guessed m, o, and e so far. The
+answer array would look like this ["m", "o", "_", "_", "e", "_"],
+and answerArray.join(" ") would be "m o _ _ e _".
+
