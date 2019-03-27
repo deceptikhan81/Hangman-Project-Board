@@ -68,3 +68,21 @@ the length of the secret word. We’ll use this variable to keep track
 of how many letters are left to be guessed. Every time the player
 guesses a correct letter, this value will be decremented (reduced)
 by 1 for each instance of that letter in the word.
+
+Coding the Game Loop:
+The skeleton of the game loop looks like this:
+while (remainingLetters > 0) {
+ // Game code goes here
+ // Show the player their progress
+ // Take input from the player
+ // Update answerArray and remainingLetters for every correct guess
+}
+We use a while loop, which
+will keep looping as long as
+remainingLetters > 0 remains true.
+The body of the loop will have
+to update remainingLetters for every
+correct guess the player makes. Once
+the player has guessed all the letters,
+remainingLetters will be 0 and the loop
+will end.
