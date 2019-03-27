@@ -185,3 +185,14 @@ we also need to decrement remainingLetters by 1. We do this at 3
 using remainingLetters--;. Every time guess matches a letter in word,
 remainingLetters decreases by 1. Once the player has guessed all the
 letters correctly, remainingLetters will be 0.
+
+Ending the Game
+The main game loop condition is remainingLetters > 0, so as long as there are still letters to
+guess, the loop will keep looping. Once remainingLetters
+reaches 0, we leave the loop. We end with the following code:
+alert(answerArray.join(" "));
+alert("Good job! The answer was " + word);
+The first line uses alert to show the
+answer array one last time. The second
+line uses alert again to congratulate the
+winning player.
