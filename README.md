@@ -53,11 +53,11 @@ Creating the Answer Array:
 Next we create an empty array called answerArray and fill it with
 underscores (_) to match the number of letters in the word.
 var answerArray = [];
-u for (var i = 0; i < word.length; i++) {
+1 for (var i = 0; i < word.length; i++) {
  answerArray[i] = "_";
 }
 var remainingLetters = word.length;
-The for loop at u creates a looping variable i that starts at 0
+The for loop at 1 creates a looping variable i that starts at 0
 and goes up to (but does not include) word.length. Each time around
 the loop, we add a new element to answerArray, at answerArray[i].
 When the loop finishes, answerArray will be the same length as word.
