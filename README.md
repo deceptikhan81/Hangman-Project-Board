@@ -98,3 +98,35 @@ is monkey and the player has guessed m, o, and e so far. The
 answer array would look like this ["m", "o", "_", "_", "e", "_"],
 and answerArray.join(" ") would be "m o _ _ e _".
 
+Handling the Player’s Input:
+Now we have to get a guess from the player and ensure that it’s a
+single character.
+1 var guess = prompt("Guess a letter, or click Cancel to stop playing.");
+2 if (guess === null) {
+ break;
+3 } else if (guess.length !== 1) {
+ alert("Please enter a single letter.");
+} else {
+4 // Update the game state with the guess
+}
+At 1, prompt takes a guess from the player and saves it to the
+variable guess. One of four things will happen at this point.
+JavaScript for Kids
+©2015, Nick Morgan 
+116 Chapter 7
+First, if the player clicks the Cancel button, then guess will be
+null. We check for this condition at 2 with if (guess === null). If
+this condition is true, we use break to exit the loop.
+Note You can use the break keyword in any loop to immediately stop looping, no matter where the program is in the loop or whether the while
+condition is currently true.
+The second and third possibilities are that the player enters
+either nothing or too many letters. If they enter nothing but click
+OK, guess will be the empty string "". In this case, guess.length
+will be 0. If they enter anything more than one letter, guess.length
+will be greater than 1.
+At 3, we use else if (guess.length !== 1) to check for these
+conditions, ensuring that guess is exactly one letter. If it’s not,
+we display an alert saying, “Please enter a single letter.”
+The fourth possibility is that the player enters a valid guess of
+one letter. Then we have to update the game state with their guess
+using the else statement at 4, which we’ll do in the next section.
