@@ -130,3 +130,30 @@ we display an alert saying, “Please enter a single letter.”
 The fourth possibility is that the player enters a valid guess of
 one letter. Then we have to update the game state with their guess
 using the else statement at 4, which we’ll do in the next section.
+
+Updating the Game State:
+Once the player has entered a valid guess, we must update the
+game’s answerArray according to the guess. To do that, we add the
+following code to the else statement:
+u for (var j = 0; j < word.length; j++) {
+v if (word[j] === guess) {
+ answerArray[j] = guess;
+w remainingLetters--;
+ }
+}
+At u, we create a for loop with a new looping variable called j,
+which runs from 0 up to word.length. (We’re using j as the variable
+in this loop because we already used i in the previous for loop.) We
+use this loop to step through each letter of word. For example, let’s
+say word is pancake. The first time around this loop, when j is 0,
+word[j] will be "p". The next time, word[j] will be "a", then "n", "c",
+"a", "k", and finally "e".
+At v, we use if (word[j] === guess) to check whether the current letter we’re looking at matches the player’s guess. If it does,
+we use answerArray[j] = guess to update the answer array with
+JavaScript for Kids
+©2015, Nick Morgan 
+Creating a Hangman Game 117
+the current guess. For each letter in the word that matches guess,
+we update the answer array at the corresponding point. This
+works because the looping variable j can be used as an index for
+answerArray just as it can be used as an index for word,
