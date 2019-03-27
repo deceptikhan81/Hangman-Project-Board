@@ -135,20 +135,20 @@ Updating the Game State:
 Once the player has entered a valid guess, we must update the
 game’s answerArray according to the guess. To do that, we add the
 following code to the else statement:
-u for (var j = 0; j < word.length; j++) {
-v if (word[j] === guess) {
+1 for (var j = 0; j < word.length; j++) {
+2 if (word[j] === guess) {
  answerArray[j] = guess;
-w remainingLetters--;
+3 remainingLetters--;
  }
 }
-At u, we create a for loop with a new looping variable called j,
+At 1, we create a for loop with a new looping variable called j,
 which runs from 0 up to word.length. (We’re using j as the variable
 in this loop because we already used i in the previous for loop.) We
 use this loop to step through each letter of word. For example, let’s
 say word is pancake. The first time around this loop, when j is 0,
 word[j] will be "p". The next time, word[j] will be "a", then "n", "c",
 "a", "k", and finally "e".
-At v, we use if (word[j] === guess) to check whether the current letter we’re looking at matches the player’s guess. If it does,
+At 2, we use if (word[j] === guess) to check whether the current letter we’re looking at matches the player’s guess. If it does,
 we use answerArray[j] = guess to update the answer array with
 JavaScript for Kids
 ©2015, Nick Morgan 
@@ -156,4 +156,32 @@ Creating a Hangman Game 117
 the current guess. For each letter in the word that matches guess,
 we update the answer array at the corresponding point. This
 works because the looping variable j can be used as an index for
-answerArray just as it can be used as an index for word,
+answerArray just as it can be used as an index for word.
+For example, imagine we’ve just started playing the game and
+we reach the for loop at 1. Let’s say word is "pancake", guess is "a",
+and answerArray currently looks like this:
+["_", "_", "_", "_", "_", "_", "_"]
+The first time around the for loop at 1, j is 0, so word[j]
+is "p". Our guess is "a", so we skip the if statement at 2 (because
+"p" === "a" is false). The second time around, j is 1, so word[j]
+is "a". This is equal to guess, so we enter the if part of the statement. The line answerArray[j] = guess; sets the element at index
+1 (the second element) of answerArray to guess, so answerArray now
+looks like this:
+["_", "a", "_", "_", "_", "_", "_"]
+The next two times around the loop, word[j] is "n" and then
+"c", which don’t match guess. However, when j reaches 4, word[j]
+is "a" again. We update answerArray again, this time setting the
+element at index 4 (the fifth element) to guess. Now answerArray
+looks like this:
+["_", "a", "_", "_", "a", "_", "_"]
+The remaining letters don’t match "a", so nothing happens the
+last two times around the loop. At the end of this loop, answerArray
+will be updated with all the occurrences of guess in word.
+JavaScript for Kids
+©2015, Nick Morgan 
+118 Chapter 7
+For every correct guess, in addition to updating answerArray,
+we also need to decrement remainingLetters by 1. We do this at 3
+using remainingLetters--;. Every time guess matches a letter in word,
+remainingLetters decreases by 1. Once the player has guessed all the
+letters correctly, remainingLetters will be 0.
